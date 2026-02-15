@@ -188,7 +188,7 @@ def render_audit_entries(entries: list[dict]) -> None:
     table.add_column("Timestamp")
     table.add_column("Action")
     table.add_column("Query")
-    table.add_column("Levels")
+    table.add_column("Result Levels")
     table.add_column("User")
     table.add_column("Hostname")
 
@@ -197,7 +197,7 @@ def render_audit_entries(entries: list[dict]) -> None:
             str(entry.get("timestamp", "")),
             str(entry.get("action", "")),
             str(entry.get("query", "")),
-            str(entry.get("levels", "")),
+            str(entry.get("result_levels", "")),
             str(entry.get("user", "")),
             str(entry.get("hostname", "")),
         )

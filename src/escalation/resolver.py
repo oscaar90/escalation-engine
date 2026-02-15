@@ -10,6 +10,7 @@ from escalation.models import (
     Contact,
     EscalationResult,
     EscalationStep,
+    Policies,
     Service,
 )
 
@@ -56,12 +57,21 @@ def _load_registry(
     return load_registry(registry_path or Path("registry"))
 
 
-def _record_audit(service_id: str, action: str, result: str) -> None:
+def _record_audit(
+    action: str, query: str, result_levels: int, policies: Policies
+) -> None:
     """Attempt to record an audit entry, silently ignoring if audit is unavailable."""
     try:
         from escalation.audit import record_query
 
-        record_query(service_id=service_id, action=action, result=result)
+        policies_dict = {
+            "audit": {
+                "enabled": policies.audit.get("enabled", False),
+                "output": policies.audit.get("output", "./audit_logs/"),
+                "format": policies.audit.get("format", "jsonl"),
+            }
+        }
+        record_query(action, query, result_levels, policies_dict)
     except (ImportError, AttributeError):
         pass
 
@@ -135,7 +145,7 @@ def resolve(
         query=service_id,
     )
 
-    _record_audit(service_id, action="resolve", result="success")
+    _record_audit("resolve", service_id, len(steps), reg.policies)
 
     return result
 
@@ -177,6 +187,6 @@ def whois(
 
     contact = _pick_primary(team.contacts)
 
-    _record_audit(service_id, action="whois", result="success")
+    _record_audit("whois", service_id, 1, reg.policies)
 
     return (contact.name, team.name, dict(contact.channels))
