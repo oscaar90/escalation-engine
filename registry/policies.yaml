@@ -1,0 +1,8 @@
+policies:
+  default_sla_minutes: 30
+  escalation_timeout_minutes: 10
+  fallback_team: sre-oncall
+  audit:
+    enabled: true
+    output: "./audit_logs/"
+    format: jsonl

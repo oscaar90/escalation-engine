@@ -1,0 +1,48 @@
+services:
+  - id: payments-api
+    name: "Payments API Gateway"
+    tier: P1
+    owner_team: platform-core
+    escalation_chain:
+      - platform-core
+      - sre-oncall
+      - engineering-management
+    sla_minutes: 15
+
+  - id: auth-service
+    name: "Authentication Service"
+    tier: P1
+    owner_team: identity-team
+    escalation_chain:
+      - identity-team
+      - platform-core
+      - engineering-management
+    sla_minutes: 15
+
+  - id: core-banking
+    name: "Core Banking Engine"
+    tier: P1
+    owner_team: platform-core
+    escalation_chain:
+      - platform-core
+      - sre-oncall
+      - engineering-management
+    sla_minutes: 15
+
+  - id: notification-service
+    name: "Notification Service"
+    tier: P2
+    owner_team: platform-core
+    escalation_chain:
+      - platform-core
+      - sre-oncall
+    sla_minutes: 30
+
+  - id: reporting-api
+    name: "Reporting API"
+    tier: P3
+    owner_team: identity-team
+    escalation_chain:
+      - identity-team
+      - platform-core
+    sla_minutes: 60
