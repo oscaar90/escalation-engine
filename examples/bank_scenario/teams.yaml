@@ -1,0 +1,67 @@
+teams:
+  - id: platform-core
+    name: "Platform Core"
+    contacts:
+      - name: "Ana García"
+        role: primary
+        channels:
+          phone: "+34600111222"
+          slack: "#platform-core"
+          email: "ana.garcia@example.com"
+      - name: "Carlos López"
+        role: secondary
+        channels:
+          phone: "+34600333444"
+          slack: "#platform-core"
+          email: "carlos.lopez@example.com"
+      - name: "María Directora"
+        role: manager
+        channels:
+          email: "maria.dir@example.com"
+          phone: "+34600555666"
+
+  - id: sre-oncall
+    name: "SRE On-Call"
+    contacts:
+      - name: "Óscar Sánchez"
+        role: primary
+        channels:
+          phone: "+34600777888"
+          slack: "#sre-oncall"
+          email: "oscar.sanchez@example.com"
+      - name: "Laura Martín"
+        role: secondary
+        channels:
+          phone: "+34600999000"
+          slack: "#sre-oncall"
+          email: "laura.martin@example.com"
+
+  - id: identity-team
+    name: "Identity & Access"
+    contacts:
+      - name: "Pedro Ruiz"
+        role: primary
+        channels:
+          phone: "+34601111222"
+          slack: "#identity"
+          email: "pedro.ruiz@example.com"
+      - name: "Elena Torres"
+        role: secondary
+        channels:
+          phone: "+34601333444"
+          slack: "#identity"
+          email: "elena.torres@example.com"
+
+  - id: engineering-management
+    name: "Engineering Management"
+    contacts:
+      - name: "Director de Ingeniería"
+        role: primary
+        channels:
+          phone: "+34602000111"
+          email: "dir.eng@example.com"
+      - name: "VP Engineering"
+        role: manager
+        channels:
+          phone: "+34602000222"
+          email: "vp.eng@example.com"
