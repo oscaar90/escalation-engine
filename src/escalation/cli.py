@@ -112,7 +112,7 @@ def audit_show(
     ] = Path("./audit_logs/audit.jsonl"),
 ) -> None:
     """Show audit log entries."""
-    entries = read_audit_log(path)
+    entries = read_audit_log(audit_path=path)
     render_audit_entries(entries)
 
 
@@ -126,7 +126,7 @@ def audit_export(
     ] = Path("./audit_logs/audit.jsonl"),
 ) -> None:
     """Export audit log entries in JSON or CSV format."""
-    entries = read_audit_log(path)
+    entries = read_audit_log(audit_path=path)
     if not entries:
         console.print("[dim]No audit entries to export.[/dim]")
         raise typer.Exit(code=0)
