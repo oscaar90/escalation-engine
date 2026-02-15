@@ -2,7 +2,7 @@
 
 from __future__ import annotations
 
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from escalation.loader import Registry, load_registry
@@ -11,7 +11,6 @@ from escalation.models import (
     EscalationResult,
     EscalationStep,
     Policies,
-    Service,
 )
 
 
@@ -141,7 +140,7 @@ def resolve(
     result = EscalationResult(
         service=service,
         chain=steps,
-        timestamp=datetime.now(timezone.utc).isoformat(),
+        timestamp=datetime.now(UTC).isoformat(),
         query=service_id,
     )
 
