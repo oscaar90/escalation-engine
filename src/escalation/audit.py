@@ -7,7 +7,7 @@ import getpass
 import io
 import json
 import socket
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 DEFAULT_AUDIT_PATH = Path("./audit_logs/audit.jsonl")
@@ -51,7 +51,7 @@ def record_query(
     output_dir.mkdir(parents=True, exist_ok=True)
 
     entry = {
-        "timestamp": datetime.now(timezone.utc).isoformat(),
+        "timestamp": datetime.now(UTC).isoformat(),
         "action": action,
         "query": query,
         "result_levels": result_levels,

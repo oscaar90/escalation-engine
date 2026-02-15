@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 from pathlib import Path
-from typing import Annotated, Optional
+from typing import Annotated
 
 import typer
 from rich.console import Console
@@ -44,7 +44,7 @@ def resolve_cmd(
         bool, typer.Option("--json", help="Output as JSON.")
     ] = False,
     level: Annotated[
-        Optional[int], typer.Option("--level", help="Show only this escalation level.")
+        int | None, typer.Option("--level", help="Show only this escalation level.")
     ] = None,
 ) -> None:
     """Resolve the escalation chain for a service."""
